@@ -21,6 +21,11 @@ After the meeting with the other team, they figured out the content of Test 3, w
 
 * Returning users react better on test 3. Suggest rolling out Test 3 on returning users and test the effect when moving the banner to checkout page.
 
+### Assumption
+* The metrics can based on customer and sesison level. In my analysis, I checked both but I prepfer to use session level metrics because it is a fast fashion company and customers may place multiple orders in a short time for impulse buying.
+* The raw data has some issue with sampling, which means that some of the test groups cannot perform deep dive because of the small traffic. Especially in this situation, there is an overlap of the two tests and we have to perform multivariate analysis by dividing sample to smaller groups.
+* Of all the analysis and calculation on this report, they have all went through the P-Value trend test, which means that all the significance are stable over the time and reliable.
+
 ### Traffic Flow
 <img src='image/Traffic flow chart.png'>
 From the image above, we can see the users will finish the flow before they finally place an order.
@@ -39,6 +44,7 @@ For this analysis, I used the following metics to track the performance of the t
 
 ### Overall Analysis - Session Level
 
+#### Test 1 & Test 3 Result
 <img src='image/Overall Analysis.png'>
 
 I suggest to rolling out Variation 1 of Test 1. From the table above, we can see the Variation 1 of Test 1 have a better performance, the ATCR has a significant increase of 0.35%. Alhough there is a decrease on the average revenue, I see it as users actually read the product details and they tend to place an order more carefully. There is fewer impulse spending for each session. I see it a good sign that our customers have more information of our product. I expect it will generate a higher revenue in the future and have the brand awareness increase.
@@ -58,17 +64,97 @@ From the table above, I suggest rolling out variation 1 except for users with pu
 
 #### Cut by Category
 I performed deep dive to see how users who bought different kinds of categories react to our new changes. Here is the result:
+
 <img src='image/test1 cut by category.png'>
+
 I found out that products like pants and shoes have the ATCR increase since these kind of categories need more size information than others for users to make sure they fit. And for the next step, I suggestion is that we can perform clustering analysis to apply this pattern and to see if any other categories or users have the same pattern.
 
 ### Test 3 Deep Dive
 #### Cut by Visitor Type
 
+<img src='image/test3 cut by visitor type.png'>
+
+Users sign up without purchase went through a decline of ATCR (-2.1%) and CVR (-1.09%). From my opinion, the users may go back to add more products or leave because of free shipping banner and moreover they may tend to abandon the cart for the higher value of order. When it comes to the users with purchase history, I found that this type if visitors react better. Therefore, I suggest to rolling out Test 3 except the signed up without purchase users.
+
+### Conclusion
+#### Recommandation
+I suggest rolling out Variation 1 of Test 1 for all of the users if we are appressive because because it may temporarily decrease the impulse spending but it potentially makes users pay more attention to our product details which is a benefit for our brand awareness. If we choose not taking many risk, I suggest, in this condition, to rolling out Variation 1 of Test 1 except for the users with purchase history which we saw a significant decrease on C/O.
+Regarding Test 3, I suggest rolling out it for all users except sign up without purchase.
+
+#### Next Step
+For test 1, we can go further test on why returning users are more likely to abandon cart when checkout by using questionnaire.
+As for Test 3, we can launch a test to check why ATCR and CVR decline for sign up without purchase group. In addition, we can check test 3 effect when moving the banner to checkout page or the browering page to see if it will have more positive changes.
 
 
 
+### Appendix:
+#### Data Cleaning and Processing
+I used MySQL to merge the test group ID, Revenue with our main data. Then I performed data health check to see if the sample were evenly distributed. I checked it by two level. The first is session level and another is customer level.  
+```
+## Customer Level
+SELECT TestGroupID, COUNT(distinct cusid) 
+FROM test1
+GROUP BY 1;
 
+## Session Level
+SELECT TestGroupID, COUNT(distinct SessionID) 
+FROM test1
+GROUP BY 1;
+```
 
+Also, I perfomed traffic check to tease out the date when the traffic is not stable over the period.
+```
+## Traffic Check
+SELECT date, count(distinct SessionID)
+FROM test1
+GROUP BY 1
+ORDER BY 1;
+## Test1 was from 4-12 to 5-21. But traffic from 4-15 to 5-20 was stable
+```
+
+Some of the customers may be assigned to different test group during the test period, by which they may be affected. So I also teased out the flipped.
+```
+## Tease out flipped
+CREATE TEMPORARY TABLE temp_test1
+SELECT TestGroupID, cusid
+FROM test1
+WHERE date BETWEEN '2019-04-15' AND '2019-05-20';
+
+CREATE TEMPORARY TABLE tes1_no_flipped
+SELECT *
+FROM tes1
+WHERE cusid NOT IN (
+	SELECT distinct a.cusid
+	FROM temp_test1 a JOIN test1 b
+	ON a.cusid = b.cusid AND a.TestGroupID != b.TestGroupID
+	WHERE b.date BETWEEN '2019-04-15' AND '2019-05-20');
+```
+
+Then I aggregate data by both session and customer level.
+```
+## Aggregate Data
+## Session Level
+SELECT TestGroupID,
+COUNT(DISTINCT CASE WHEN Bounced THEN SessionID END) AS Bounce,
+COUNT(DISTINCT CASE WHEN AddedToCart THEN SessionID END) AS ATC,
+COUNT(DISTINCT CASE WHEN ReachedCheckout THEN SessionID END) AS RC,
+COUNT(DISTINCT CASE WHEN Converted THEN SessionID END) AS Converted,
+COUNT(DISTINCT SessionID) AS Viewed
+FROM tes1_no_flipped
+WHERE date BETWEEN '2019-04-15' AND '2019-05-20'
+GROUP BY 1;
+
+## Customer Level
+SELECT TestGroupID,
+COUNT(DISTINCT CASE WHEN Bounced THEN CusID END) AS Bounce,
+COUNT(DISTINCT CASE WHEN AddedToCart THEN CusID END) AS ATC,
+COUNT(DISTINCT CASE WHEN ReachedCheckout THEN CusID END) AS RC,
+COUNT(DISTINCT CASE WHEN Converted THEN CusID END) AS Converted,
+COUNT(DISTINCT CusID) AS Viewed
+FROM tes1_no_flipped
+WHERE date BETWEEN '2019-04-15' AND '2019-05-20'
+GROUP BY 1;
+```
 
 
 
