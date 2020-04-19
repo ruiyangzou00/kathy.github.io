@@ -89,7 +89,7 @@ As for Test 3, we can launch a test to check why ATCR and CVR decline for sign u
 
 ### Appendix:
 #### Data Cleaning and Processing
-I used MySQL to merge the test group ID, Revenue with our main data. Then I performed data health check to see if the sample were evenly distributed. I checked it by two level. The first is session level and another is customer level.  
+I used **MySQL** to merge the test group ID, Revenue with our main data. Then I performed data health check to see if the sample were evenly distributed. I checked it by two level. The first is session level and another is customer level.  
 ```
 ## Customer Level
 SELECT TestGroupID, COUNT(distinct cusid) 
@@ -156,43 +156,119 @@ WHERE date BETWEEN '2019-04-15' AND '2019-05-20'
 GROUP BY 1;
 ```
 
+Then, I extracted the data and perform advanced calculation using **Python**, like **significant level, P-Value, Z-Score, Lift, etc**.
+
+Firstly, I developed a function to perform Z-Test for **binomial distribution** like ratio metrics and the output are the **metrics, confident level, lift**.
+
+```
+def z_test_calculator(df,denominator,numerator):
+    
+#   INPUT:
+#        df: dataframe with aggregated data
+#        denominator: str
+#        numerator: str
+
+#   OUTPUT: 
+#        (denominator, numerator, p_value, pct_lift, abs_lift)
+
+    # get data
+    nume_ctrl = df.loc[0, numerator]
+    deno_ctrl = df.loc[0, denominator]
+    nume_var = df.loc[1, numerator]
+    deno_var = df.loc[1, denominator]
 
 
+    # p
+    p_ctrl = nume_ctrl / deno_ctrl
+    p_var  = nume_var / deno_var
 
-*******************************************************************************************************************************8
+    # STD
+    std_ctrl = math.sqrt(p_ctrl * (1 - p_ctrl) / deno_ctrl)
+    std_var = math.sqrt(p_var * (1 - p_var) / deno_var)
 
-You can use the [editor on GitHub](https://github.com/ruiyangzou00/kathy.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
+    # Z-Score
+    z = (p_ctrl - p_var) / math.sqrt(std_ctrl**2 + std_var**2)
 
-Whenever you commit to this repository, GitHub Pages will run [Jekyll](https://jekyllrb.com/) to rebuild the pages in your site, from the content in your Markdown files.
+    # P Value
+    p = 1-norm.sf(abs(z))
 
-### Markdown
-
-Markdown is a lightweight and easy-to-use syntax for styling your writing. It includes conventions for
-
-```markdown
-Syntax highlighted code block
-
-# Header 1
-## Header 2
-### Header 3
-
-- Bulleted
-- List
-
-1. Numbered
-2. List 
-
-**Bold** and _Italic_ and `Code` text
-
-[Link](url) and ![Image](src)
+    # Lift
+    abs_lift = p_var - p_ctrl
+    pct_lift = abs_lift / p_ctrl
+    
+    return denominator, numerator, p, pct_lift, abs_lift
 ```
 
-For more details see [GitHub Flavored Markdown](https://guides.github.com/features/mastering-markdown/).
+Then, when it comes to revenue. I have to use another statistis model, called **Mann Whitney U Test**, which is the method to calculate significant level for **continuous variables**. But before that, I firstly **tease out the outliers of revenue**.
 
-### Jekyll Themes
 
-Your Pages site will use the layout and styles from the Jekyll theme you have selected in your [repository settings](https://github.com/ruiyangzou00/kathy.github.io/settings). The name of this theme is saved in the Jekyll `_config.yml` configuration file.
+```
+x = Var1_Rev.apply(lambda x: math.log(x,2))
+n_bins = 50
+fig, ax = plt.subplots(figsize=(8, 4))
 
-### Support or Contact
+# plot the cumulative histogram
+n, bins, patches = ax.hist(x, n_bins, density=True, histtype='step',
+                           cumulative=True, label='Cumulative')
 
-Having trouble with Pages? Check out our [documentation](https://help.github.com/categories/github-pages-basics/) or [contact support](https://github.com/contact) and we’ll help you sort it out.
+# tidy up the figure
+ax.grid(True)
+ax.legend(loc='right')
+ax.set_title('Cumulative step histograms')
+ax.set_xlabel('Annual rainfall (mm)')
+ax.set_ylabel('Likelihood of occurrence')
+
+plt.show()
+```
+<img src = 'image/outlier.png'>
+
+```# Test 3 revenue p-value
+P1 = np.percentile(Control_Rev,99.9)
+P2 = np.percentile(Var1_Rev,99.9)
+P3 = np.percentile(Var2_Rev,99.9)
+
+print(Control_Rev[Control_Rev<P1].mean(), Var1_Rev[Var1_Rev<P2].mean(), Var2_Rev[Var2_Rev<P3].mean())
+
+scipy.stats.mannwhitneyu(Control_Rev[Control_Rev<P1],Var1_Rev[Var1_Rev<P2],use_continuity=False,alternative=None)
+```
+
+Next, I performed overall analysis and cut by dimensions
+```cut = input('choose dimension to cut: [VisitorTypeID_1/CategoryID_1/PlatformID_1]:   ')
+
+dic_final={}
+for level in ['SessionID', 'CusID']:
+    # Clarify Metrics
+    metrics=['Bounced_{}'.format(test_num), 'SawProduct_{}'.format(test_num), 'AddedToCart_{}'.format(test_num), 
+             'ReachedCheckout_{}'.format(test_num), 'Converted_{}'.format(test_num)]
+    KPIs=[
+        (level, metrics[0]),
+        (level, metrics[1]),
+        (level, metrics[2]),
+        (level, metrics[3]),
+        (level, metrics[4]),
+        (metrics[1],metrics[0]),
+        (metrics[1],metrics[2]),
+        (metrics[2],metrics[3]),
+        (metrics[3],metrics[4])]
+    
+    for p in set(df_Test[cut]):
+        df_Test1=df_Test[df_Test[cut]==p]
+        df_Result_cut=pd.DataFrame(df_Test1.drop_duplicates([level, groupby_col]).groupby(groupby_col)[level].count())
+        
+        for metric in metrics:
+            df_Result_cut[metric]=df_Test1[df_Test1[metric]==1].drop_duplicates([level, groupby_col]).groupby(groupby_col)[level].count()
+
+        for i in df_Result_cut.index:
+            if i != 0:
+                test_group_n = df_Result_cut.loc[[0, i],]
+                test_group_n.index = [0,1]
+
+                groupN_statistics = []
+                for j in KPIs:
+                    groupN_statistics.append(z_test_calculator(test_group_n, j[0],j[1]))
+                key = 'TG{} - {} Level - Type{}'.format(int(i), level, int(p))
+                dic_final[key] = pd.DataFrame.from_records(groupN_statistics, columns = ['denominator','numerator',
+                                                                                         'Confident Level','perc_lift',
+                                                                                         'abs_lift'])
+print(dic_final)
+```
