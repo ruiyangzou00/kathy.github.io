@@ -14,13 +14,28 @@ But they did not realize there was another test (hereinafter called 'Test 3') ra
 
 After the meeting with the other team, they figured out the content of Test 3, which is to add a free shipping banner right above the Add-To-Cart buttom. They assumed this change will remind users to realize the shipping fee in advance and consider adding more products on the cart before checkout. Here is the design of Test 3.
 
-<img src='image/Timeline.png'>
+<img src='image/UI test 3 design.png'>
 
 ### Executive Summary
 * Test 1 performs better when it comes to specific users like customers acquired by email and returning users. Suggest rolling out variation 1.
 
 * Returning users react better on test 3. Suggest rolling out Test 3 on returning users and test the effect when moving the banner to checkout page.
 
+### Traffic Flow
+<img src='image/Traffic flow chart.png'>
+From the image above, we can see the users will finish the flow before they finally place an order.
+* Land on the product page to have more information of the item they choose
+* Add the items to cart if they intend to buy them
+* Forward to checkout page and fill all the information to place an order
+* Click place-order buttom and convert
+
+(Users may leave without any actions on the page on the product or cart page)
+
+### Metrics
+For this analysis, I used the following metics to track the performance of the test.
+* Primary Metrics: ATCR (Add-To-Cart Rate) and Rev (Average revenue for each order)
+* Secondary Metrics: BR (Bounce rate), C/O (Checkout Rate), CVR (Conversion rate)
+<img src='image/Metrics.png'>
 
 
 
