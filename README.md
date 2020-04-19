@@ -1,4 +1,9 @@
-## Welcome to GitHub Pages
+## H&M AB Testing Project
+
+H&M is a multinational fast fashion company who emphasis on high fashion at prices significantly below those of competitors, being 'Fashion and quality at the best price'. H&M deals in fashioned apparels, shoes, dress, tops, pants and skirts
+
+
+
 
 You can use the [editor on GitHub](https://github.com/ruiyangzou00/kathy.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
