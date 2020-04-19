@@ -17,14 +17,14 @@ After the meeting with the other team, they figured out the content of Test 3, w
 <img src='image/UI test 3 design.png'>
 
 ### Executive Summary
-* Test 1 performs better when it comes to specific users like customers acquired by email and returning users. Suggest rolling out variation 1.
+* Test 1 performs better when it comes to specific users like customers acquired by email and returning users. **I suggest rolling out variation 1**.
 
-* Returning users react better on test 3. Suggest rolling out Test 3 on returning users and test the effect when moving the banner to checkout page.
+* Returning users react better on test 3. **I suggest rolling out Test 3 on returning users and test the effect when moving the banner to checkout page.**
 
 ### Assumption
-* The metrics can based on customer and sesison level. In my analysis, I checked both but I prepfer to use session level metrics because it is a fast fashion company and customers may place multiple orders in a short time for impulse buying.
-* The raw data has some issue with sampling, which means that some of the test groups cannot perform deep dive because of the small traffic. Especially in this situation, there is an overlap of the two tests and we have to perform multivariate analysis by dividing sample to smaller groups.
-* Of all the analysis and calculation on this report, they have all went through the P-Value trend test, which means that all the significance are stable over the time and reliable.
+* The metrics can based on customer and sesison level. In my analysis, I checked both but I prepfer to **use session level metrics** because it is a fast fashion company and customers may place multiple orders in a short time for **impulse buying**.
+* The raw data has some issue with sampling, which means that some of the test groups **cannot perform deep dive because of the small traffic**. Especially in this situation, there is an overlap of the two tests and we have to perform **multivariate analysis** by dividing sample to smaller groups.
+* Of all the analysis and calculation on this report, they have all went through the **P-Value trend test**, which means that all the significance are stable over the time and reliable.
 
 ### Traffic Flow
 <img src='image/Traffic flow chart.png'>
@@ -38,7 +38,7 @@ From the image above, we can see the users will finish the flow before they fina
 
 ### Metrics
 For this analysis, I used the following metics to track the performance of the test.
-* Primary Metrics: ATCR (Add-To-Cart Rate) and Rev (Average revenue for each order)
+* **Primary Metrics: ATCR (Add-To-Cart Rate) and Rev (Average revenue for each order)
 * Secondary Metrics: BR (Bounce Rate), C/O (Checkout Rate), CVR (Conversion Rate)
 <img src='image/Metrics.png'>
 
@@ -89,7 +89,7 @@ As for Test 3, we can launch a test to check why ATCR and CVR decline for sign u
 
 ### Appendix:
 #### Data Cleaning and Processing
-I used **MySQL** to merge the test group ID, Revenue with our main data. Then I performed data health check to see if the sample were evenly distributed. I checked it by two level. The first is session level and another is customer level.  
+I used **MySQL** to merge the test group ID, Revenue with our main data. Then I performed **data health check** to see if the sample were evenly distributed. I checked it by two level. The first is session level and another is customer level.  
 ```
 ## Customer Level
 SELECT TestGroupID, COUNT(distinct cusid) 
@@ -102,7 +102,7 @@ FROM test1
 GROUP BY 1;
 ```
 
-Also, I perfomed traffic check to tease out the date when the traffic is not stable over the period.
+Also, I perfomed traffic check to **tease out the date when the traffic is not stable** over the period.
 ```
 ## Traffic Check
 SELECT date, count(distinct SessionID)
@@ -112,7 +112,7 @@ ORDER BY 1;
 ## Test1 was from 4-12 to 5-21. But traffic from 4-15 to 5-20 was stable
 ```
 
-Some of the customers may be assigned to different test group during the test period, by which they may be affected. So I also teased out the flipped.
+Some of the customers may be assigned to different test group during the test period, by which they may be affected. So I also **teased out the flipped.
 ```
 ## Tease out flipped
 CREATE TEMPORARY TABLE temp_test1
@@ -130,7 +130,7 @@ WHERE cusid NOT IN (
 	WHERE b.date BETWEEN '2019-04-15' AND '2019-05-20');
 ```
 
-Then I aggregate data by both session and customer level.
+Then I **aggregate data by both session and customer level.
 ```
 ## Aggregate Data
 ## Session Level
