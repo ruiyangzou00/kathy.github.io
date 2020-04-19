@@ -34,9 +34,17 @@ From the image above, we can see the users will finish the flow before they fina
 ### Metrics
 For this analysis, I used the following metics to track the performance of the test.
 * Primary Metrics: ATCR (Add-To-Cart Rate) and Rev (Average revenue for each order)
-* Secondary Metrics: BR (Bounce rate), C/O (Checkout Rate), CVR (Conversion rate)
+* Secondary Metrics: BR (Bounce Rate), C/O (Checkout Rate), CVR (Conversion Rate)
 <img src='image/Metrics.png'>
 
+### Overall Analysis - Session Level
+
+<img src='image/Overall Analysis.png'>
+
+From the table above, we can see the Variation 1 of Test 1 have a better performance, the ATCR has a significant increase of 0.35%. Alhough there is a decrease on the average revenue, it means users actually read the product details and they tend to place an order more carefully. There is fewer impulse spending for each session. I see it a good sign that our customers have more information of our product. I expect it will generate a higher revenue in the future and brand awareness increase. 
+
+
+Variation 2 underperforms than Variation 1 with negative changes in metrics of BR (+11.4%), ATCR (-11.5%) and CVR (-1.19%). Therefore, I think it is not a good idea to move the product details by sacrificing the size of product image. But I suggest we can rolling out Variation 1.
 
 
 
@@ -45,6 +53,9 @@ For this analysis, I used the following metics to track the performance of the t
 
 
 
+
+
+*******************************************************************************************************************************8
 
 You can use the [editor on GitHub](https://github.com/ruiyangzou00/kathy.github.io/edit/master/README.md) to maintain and preview the content for your website in Markdown files.
 
