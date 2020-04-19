@@ -4,7 +4,16 @@ H&M is a multinational fast fashion company who emphasis on high fashion at pric
 
 <img src='image/HM Poster.png'>
 
-Recently, the product analyst team decided to make some UX changes on product page. For example, they wanted to test whether the product details located at the bottom of the page may be distracting users from clicking Add-to-Cart buttom. Therefore, they came up with ideas of moving the product details to various location, such as right below the Add-to-Cart buttom or making the image smaller and moving up the details a bit. After discussion with product manager and engineers, they designed an A/B Testing with two variation groups and a control group as shown below.
+Recently, the product analyst team decided to make some UX changes on product page. For example, they wanted to test whether the product details located at the bottom of the page may be distracting users from clicking Add-to-Cart buttom. Therefore, they came up with ideas of moving the product details to various location, such as right below the Add-to-Cart buttom or making the image smaller and moving up the details a bit. After discussion with product manager and engineers, they designed an A/B Testing (hereinafter called 'Test 1') with two variation groups and a control group as shown below.
+
+<img src='image/UI design.png'>
+
+But they did not realize there was another test (hereinafter called 'Test 3') ran on the same page by another group until they ended the test. There is the timeline of the two tests. From the picture below, we can see that both test started at April 12, 2019. Test 1 ended at May 21, 2019, while Test 3 ended earlier at May 10, 2019. 
+
+<img src='image/Timeline.png'>
+
+
+
 
 
 
