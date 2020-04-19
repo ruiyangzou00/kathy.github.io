@@ -12,6 +12,16 @@ But they did not realize there was another test (hereinafter called 'Test 3') ra
 
 <img src='image/Timeline.png'>
 
+After the meeting with the other team, they figured out the content of Test 3, which is to add a free shipping banner right above the Add-To-Cart buttom. They assumed this change will remind users to realize the shipping fee in advance and consider adding more products on the cart before checkout. Here is the design of Test 3.
+
+<img src='image/Timeline.png'>
+
+### Executive Summary
+* Test 1 performs better when it comes to specific users like customers acquired by email and returning users. Suggest rolling out variation 1.
+
+* Returning users react better on test 3. Suggest rolling out Test 3 on returning users and test the effect when moving the banner to checkout page.
+
+
 
 
 
