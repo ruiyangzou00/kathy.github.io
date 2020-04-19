@@ -1,5 +1,8 @@
 ## H&M A/B Testing Project
 
+This is the project about AB Testing, from **data cleaning and traffic check by leveraging MySQL to perform overall multivariate analysis and deep dive by different categories using Python**. I used **Z-Test for binomial distribution for ratio metrics (Bounce Rate, ATCR, Checkout Rate, Conversion Rate) and Mann Whitney U tests for continuous variables (Revenue)**. Based on my analysis, I came up with actionable and insightful recommendations and solutions. And also, I provided next steps based on current situation.
+
+### Introduction
 H&M is a multinational fast fashion company who emphasis on high fashion at prices significantly below those of competitors, being 'Fashion and quality at the best price'. H&M deals in fashioned apparels, shoes, dress, tops, pants and skirts
 
 <img src='image/HM Poster.png'>
