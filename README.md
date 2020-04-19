@@ -41,10 +41,28 @@ For this analysis, I used the following metics to track the performance of the t
 
 <img src='image/Overall Analysis.png'>
 
-From the table above, we can see the Variation 1 of Test 1 have a better performance, the ATCR has a significant increase of 0.35%. Alhough there is a decrease on the average revenue, it means users actually read the product details and they tend to place an order more carefully. There is fewer impulse spending for each session. I see it a good sign that our customers have more information of our product. I expect it will generate a higher revenue in the future and brand awareness increase. 
+I suggest to rolling out Variation 1 of Test 1. From the table above, we can see the Variation 1 of Test 1 have a better performance, the ATCR has a significant increase of 0.35%. Alhough there is a decrease on the average revenue, I see it as users actually read the product details and they tend to place an order more carefully. There is fewer impulse spending for each session. I see it a good sign that our customers have more information of our product. I expect it will generate a higher revenue in the future and have the brand awareness increase.
 
 
-Variation 2 underperforms than Variation 1 with negative changes in metrics of BR (+11.4%), ATCR (-11.5%) and CVR (-1.19%). Therefore, I think it is not a good idea to move the product details by sacrificing the size of product image. But I suggest we can rolling out Variation 1.
+Variation 2 underperforms than Variation 1 with negative changes in metrics of BR (+11.4%), ATCR (-11.5%) and CVR (-1.19%). Therefore, I think it is not a good idea to move the product details by sacrificing the size of product image. 
+
+As for Test 3, we can see the primary metrics like ATCR and revenue are falling. But there is an improvement on BR and C/O, which makes sense because the free shipping banner make users aware of potential shipping fee for small order in advance, making them add more items on cart and have a less abandon rate for unexpected shipping fee when checkout.
+
+### Test 1 Deep Dive
+#### Cut by Visitor Type
+There are four different type of visitors, which are new users, email acquired visitors, sign up with no purchase, and users with purchase history. I caluclate the performance for each type of visitor. Below is the result.
+
+<img src='image/test1 cut by visitor type.png'>
+
+From the table above, I suggest rolling out variation 1 except for users with purchase history since there is no directional negative effect on metrics of these groups. And users who have purchase history have a decline on C/O because they may be discouraged for the higher value of cart. Therefore, I suggestion for the next step is to launch another test on this group. For example, we can perform user research by sending emails to useres who did not checkout and ask them the reason. 
+
+#### Cut by Category
+I performed deep dive to see how users who bought different kinds of categories react to our new changes. Here is the result:
+<img src='image/test1 cut by category.png'>
+I found out that products like pants and shoes have the ATCR increase since these kind of categories need more size information than others for users to make sure they fit. And for the next step, I suggestion is that we can perform clustering analysis to apply this pattern and to see if any other categories or users have the same pattern.
+
+### Test 3 Deep Dive
+#### Cut by Visitor Type
 
 
 
