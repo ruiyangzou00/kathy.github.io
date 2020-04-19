@@ -41,7 +41,7 @@ From the image above, we can see the users will finish the flow before they fina
 
 ### Metrics
 For this analysis, I used the following metics to track the performance of the test.
-* **Primary Metrics: ATCR (Add-To-Cart Rate) and Rev (Average revenue for each order)
+* Primary Metrics: ATCR (Add-To-Cart Rate) and Rev (Average revenue for each order)
 * Secondary Metrics: BR (Bounce Rate), C/O (Checkout Rate), CVR (Conversion Rate)
 <img src='image/Metrics.png'>
 
