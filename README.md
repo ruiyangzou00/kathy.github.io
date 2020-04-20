@@ -3,9 +3,12 @@
 This is the project about AB Testing, from **data cleaning and traffic chec**k by leveraging **MySQL** to perform overall **multivariate analysis** and **deep dive** by different categories using **Python**. I used **Z-Test** for binomial distribution for ratio metrics (**Bounce Rate, ATCR, Checkout Rate, Conversion Rate**) and **Mann Whitney U tests** for continuous variables (**Revenue**). Based on my analysis, I came up with actionable and insightful recommendations and solutions. And also, I provided next steps based on current situation.
 
 ### Introduction
+
+<img src='image/HM Poster.png' width="200" height="150">
+
 H&M is a multinational fast fashion company who emphasis on high fashion at prices significantly below those of competitors, being 'Fashion and quality at the best price'. H&M deals in fashioned apparels, shoes, dress, tops, pants and skirts
 
-<img src='image/HM Poster.png'>
+
 
 Recently, the product analyst team decided to make some UX changes on product page. For example, they wanted to test whether the product details located at the bottom of the page may be distracting users from clicking Add-to-Cart buttom. Therefore, they came up with ideas of moving the product details to various location, such as right below the Add-to-Cart buttom or making the image smaller and moving up the details a bit. After discussion with product manager and engineers, they designed an A/B Testing (hereinafter called 'Test 1') with two variation groups and a control group as shown below.
 
@@ -13,7 +16,9 @@ Recently, the product analyst team decided to make some UX changes on product pa
 
 But they did not realize there was another test (hereinafter called 'Test 3') ran on the same page by another group until they ended the test. There is the timeline of the two tests. From the picture below, we can see that both test started at April 12, 2019. Test 1 ended at May 21, 2019, while Test 3 ended earlier at May 10, 2019. 
 
-<img src='image/Timeline.png'>
+<p align="center">
+<img src='image/Timeline.png' width="800" height="110">
+</p>
 
 After the meeting with the other team, they figured out the content of Test 3, which is to add a free shipping banner right above the Add-To-Cart buttom. They assumed this change will remind users to realize the shipping fee in advance and consider adding more products on the cart before checkout. Here is the design of Test 3.
 
