@@ -4,7 +4,9 @@ This is the project about AB Testing, from **data cleaning and traffic chec**k b
 
 ### Introduction
 
-<img src='image/HM Poster.png' width="200" height="150">
+<p align="center">
+<img src='image/HM Poster.png' width="300" height="275">
+</p>
 
 H&M is a multinational fast fashion company who emphasis on high fashion at prices significantly below those of competitors, being 'Fashion and quality at the best price'. H&M deals in fashioned apparels, shoes, dress, tops, pants and skirts
 
@@ -22,7 +24,7 @@ But they did not realize there was another test (hereinafter called 'Test 3') ra
 
 After the meeting with the other team, they figured out the content of Test 3, which is to add a free shipping banner right above the Add-To-Cart buttom. They assumed this change will remind users to realize the shipping fee in advance and consider adding more products on the cart before checkout. Here is the design of Test 3.
 
-<img src='image/UI test 3 design.png'>
+<img src='image/UI test 3 design.png' width="600" height="220">
 
 ### Executive Summary
 * Test 1 performs better when it comes to specific users like customers acquired by email and returning users. **I suggest rolling out variation 1**.
@@ -35,7 +37,7 @@ After the meeting with the other team, they figured out the content of Test 3, w
 * Of all the analysis and calculation on this report, they have all went through the **P-Value trend test**, which means that all the significance are stable over the time and reliable.
 
 ### Traffic Flow
-<img src='image/Traffic flow chart.png'>
+<img src='image/Traffic flow chart.png' width="400" height="50">
 From the image above, we can see the users will finish the flow before they finally place an order.
 * Land on the product page to have more information of the item they choose
 * Add the items to cart if they intend to buy them
@@ -48,12 +50,12 @@ From the image above, we can see the users will finish the flow before they fina
 For this analysis, I used the following metics to track the performance of the test.
 * Primary Metrics: ATCR (Add-To-Cart Rate) and Rev (Average revenue for each order)
 * Secondary Metrics: BR (Bounce Rate), C/O (Checkout Rate), CVR (Conversion Rate)
-<img src='image/Metrics.png'>
+<img src='image/Metrics.png' width="400" height="250">
 
 ### Overall Analysis - Session Level
 
 #### Test 1 & Test 3 Result
-<img src='image/Overall Analysis.png'>
+<img src='image/Overall Analysis.png' width="330" height="215">
 
 I suggest to rolling out Variation 1 of Test 1. From the table above, we can see the Variation 1 of Test 1 have a better performance, the ATCR has a significant increase of 0.35%. Alhough there is a decrease on the average revenue, I see it as users actually read the product details and they tend to place an order more carefully. There is fewer impulse spending for each session. I see it a good sign that our customers have more information of our product. I expect it will generate a higher revenue in the future and have the brand awareness increase.
 
@@ -66,21 +68,21 @@ As for Test 3, we can see the primary metrics like ATCR and revenue are falling.
 #### Cut by Visitor Type
 There are four different type of visitors, which are new users, email acquired visitors, sign up with no purchase, and users with purchase history. I caluclate the performance for each type of visitor. Below is the result.
 
-<img src='image/test1 cut by visitor type.png'>
+<img src='image/test1 cut by visitor type.png' width="360" height="140">
 
 From the table above, I suggest rolling out variation 1 except for users with purchase history since there is no directional negative effect on metrics of these groups. And users who have purchase history have a decline on C/O because they may be discouraged for the higher value of cart. Therefore, I suggestion for the next step is to launch another test on this group. For example, we can perform user research by sending emails to useres who did not checkout and ask them the reason. 
 
 #### Cut by Category
 I performed deep dive to see how users who bought different kinds of categories react to our new changes. Here is the result:
 
-<img src='image/test1 cut by category.png'>
+<img src='image/test1 cut by category.png' width="320" height="280">
 
 I found out that products like pants and shoes have the ATCR increase since these kind of categories need more size information than others for users to make sure they fit. And for the next step, I suggestion is that we can perform clustering analysis to apply this pattern and to see if any other categories or users have the same pattern.
 
 ### Test 3 Deep Dive
 #### Cut by Visitor Type
 
-<img src='image/test3 cut by visitor type.png'>
+<img src='image/test3 cut by visitor type.png' width="350" height="180">
 
 Users sign up without purchase went through a decline of ATCR (-2.1%) and CVR (-1.09%). From my opinion, the users may go back to add more products or leave because of free shipping banner and moreover they may tend to abandon the cart for the higher value of order. When it comes to the users with purchase history, I found that this type if visitors react better. Therefore, I suggest to rolling out Test 3 except the signed up without purchase users.
 
