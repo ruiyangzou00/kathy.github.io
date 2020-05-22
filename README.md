@@ -63,7 +63,7 @@ For this analysis, I used the following metrics to track the performance of the 
 #### Test 1 & Test 3 Result
 <img src='image/Overall Analysis.png' width="330" height="215">
 
-I suggest the rolling out Variation 1 of Test 1. From the table above, we can see Variation 1 of Test 1 has better performance; the ATCR has a significant increase of 0.35%, although there was a decrease in the average revenue. It can be deduced that as the users read the product details, they tended to place their orders more carefully and better informed. There were fewer cases of the influence of impulse spending or buying for each session. I see it as a **good sign** that our customers have more information about our product. I expect that it would generate **higher revenues** in the foreseeable future and have **brand awareness impacted positively**.
+I suggest the rolling out Variation 1 of Test 1. From the table above, we can see Variation 1 of Test 1 has better performance; the ATCR has a significant increase of 0.35%, also there was an increase in the average revenue. 
 
 Variation 2 exhibits some underperformance than Variation 1. This can be seen in the negative changes in metrics of BR (+11.4%), ATCR (-11.5%) and CVR (-1.19%). Therefore, I think it was not an informed idea to shift the product details by sacrificing the size of the product image.
 
