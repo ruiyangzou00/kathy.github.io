@@ -1,10 +1,6 @@
-## H&M A/B Testing Project
+## A/B Testing Project
 
 This project will focus on AB Testing, from **data cleaning** and **traffic check** by leveraging **MySQL** to perform the overall **multivariate analysis** and **deep dive by different categories** using **Python**. I used the **Z-Test** for binomial distribution for ratio metrics (Bounce Rate, ATCR, Checkout Rate, and Conversion Rate) and **Mann Whitney U tests** for continuous variables (Revenue). Based on my analysis, I came up with **actionable and insightful recommendations and solutions**. Additionally, I provided the next steps based on the current situation.
-
-<p align="center">
-<img src='image/HM Poster.png' width="300" height="275">
-</p>
 
 ### Introduction
 
