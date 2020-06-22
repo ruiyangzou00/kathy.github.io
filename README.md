@@ -4,9 +4,9 @@ This project will focus on AB Testing, from **data cleaning** and **traffic chec
 
 ### Introduction
 
-H&M is a multinational fast-fashion company that emphasizes on high fashion at prices significantly below those of their major competitors. Fashion and quality at the best price is the value proposition that they guarantee to their prospective clientele. H&M deals in fashioned apparels, shoes, dress, tops, pants and skirts.
+M is a multinational fast-fashion company that emphasizes on high fashion at prices significantly below those of their major competitors. Fashion and quality at the best price is the value proposition that they guarantee to their prospective clientele. M deals in fashioned apparels, shoes, dress, tops, pants and skirts.
 
-Recently, the product analysis team decided to make some User Experience **UX changes on the product page** of the H&M website. One of the areas of concern, for example, is that the product analysis team wanted to test whether the product details located at the bottom of the page may be **distracting users from clicking the "Add-to-Cart" button**. It is for this reason; they came up with ideas of moving the product details to various locations, such as right below the Add-to-Cart button or making the image smaller and moving up the details a bit. After discussions with the product manager and engineers, they designed an A/B Testing (hereinafter called 'Test 1') with two variation groups and a control group, as shown below.
+Recently, the product analysis team decided to make some User Experience **UX changes on the product page** of the website. One of the areas of concern, for example, is that the product analysis team wanted to test whether the product details located at the bottom of the page may be **distracting users from clicking the "Add-to-Cart" button**. It is for this reason; they came up with ideas of moving the product details to various locations, such as right below the Add-to-Cart button or making the image smaller and moving up the details a bit. After discussions with the product manager and engineers, they designed an A/B Testing (hereinafter called 'Test 1') with two variation groups and a control group, as shown below.
 
 
 
@@ -94,7 +94,7 @@ The users that signed up without a purchase went through a decline of ATCR (-2.1
 I suggested the **rolling out Variation 1 of Test 1** for all of the users. This is because if from a business analytical point of view we are required to be **aggressive** because it may temporarily decrease the impulse spending, but it may **potentially make the users pay more attention to our product details**. This is a positive effect that is beneficial to **promoting our brand awareness**. When we choose to have a lower risk appetite, I suggested, that in this condition, to the rolling out Variation 1 of Test 1 except for the users with purchase history we saw a significant decrease on C/O. Regarding Test 3, I suggested the **rolling out it for all the users except the ones that signed up without purchase**.
 
 #### Next Step
-For test 1, we could go further and establish the reasons why the returning users were more likely to abandon the cart and check out by using a short and precise questionnaire with **open-ended and closed-ended questions**. As for Test 3, we could launch a test to **check why ATCR and CVR declined** for sign up without purchase group. Besides, we could check effects of test 3 when **moving the banner to the checkout page or the browsing page** to see whether it would have more positive changes on the purchases and by extension the sales volume of H&M.
+For test 1, we could go further and establish the reasons why the returning users were more likely to abandon the cart and check out by using a short and precise questionnaire with **open-ended and closed-ended questions**. As for Test 3, we could launch a test to **check why ATCR and CVR declined** for sign up without purchase group. Besides, we could check effects of test 3 when **moving the banner to the checkout page or the browsing page** to see whether it would have more positive changes on the purchases and by extension the sales volume.
 
 
 
