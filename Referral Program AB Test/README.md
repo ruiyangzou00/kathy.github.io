@@ -14,7 +14,7 @@ The current referral program offers our customers a cash reward for referring th
 
 To enhance market positioning, Root came up with an idea about a new referral program, which is to increase the $25 incentive to $50. Both sender and receiver will receive $50 if the receiver opens an account in our mobile app within the sender’s 30-day window and then eventually gets a quote. To test if the new referral program will increase referrals, we designed an A/B Testing. As shown below, we have two variations in our AB Test. The first variation is to increase the incentive from $25 to $50. The second variation is to have users receive promotion messages 0 day, 2 days, and 7 days after buying a policy. As the control group, the users never receive the $50 promotion bonus, as shown below.
 
-<img src='image/1. control and variation.png'>
+<img src='image/1. control and variation.png' width="550" height="250">
 
 
 
@@ -75,7 +75,7 @@ For a promotion message that starts immediately after sender buying a policy (0 
 The other variable is promotion start time (0/2/7 days). Because there is no current control group, I compared the three groups horizontally. From the figure below, we can see the 0-day test group outperforms other groups significantly, with the Refer% 31%, 12% Quote%, and 4% Policy%. Therefore, when the promotion starts immediately, it will generate more referrals than others which begins later. 
 
 
-<img src='image/Figure 3.Promo Begin-Time Test.png'>
+<img src='image/Figure 3.Promo Begin-Time Test.png' width="300" height="180">
 
 After comparing each variable, respectively, the next analysis examines the combined impact. This approach seeks to identify the group having better performance with combined effect of  promotion reward amount and promo start time. Below is the result: 
 
@@ -96,7 +96,7 @@ In the analysis, I assumed the average premium to be $600 / 6 months to allow fo
 Then I calculated the ROI for each group, and the result is shown below. Although the ROI goes  down from $2.1 to $0.9, it is worthwhile because the promotion is attracting more customers, which could boost the company’s revenue volumes and market share. Based on these benefits, the total profit increases by 55% (estimated).
 
 
-<img src='image/Figure 6 Business Growth.png'>
+<img src='image/Figure 6 Business Growth.png' width="400" height="220">
 
 ## RECOMMENDATION
 
