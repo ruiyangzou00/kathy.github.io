@@ -5,8 +5,6 @@ This report focuses on an AB Test launched by Root. The AB test is used to analy
 
 •	Increase the frequency of reminder messages sent to the users. Upon increasing the number of promotional messages to users (ex. sending the promo again after 5 days), we could test whether it will increase the volume of referrals. 
 
-•	The third recommendation is to launch another test which offers the cash reward after receiver buy a policy to see if it will increase policy conversions.
-
 •	We could also get real feedback from users who got a quote but eventually did not buy our policy and find out if there are other product and service attributes that require improvement.
 
 ## INTRODUCTION
