@@ -91,7 +91,7 @@ The users that signed up without a purchase went through a decline of ATCR (-2.1
 
 ### Multivariate Analysis
 #### Combined Impact
-<img src='image/multi.png' width="320" height="280">
+<img src='image/multi.png' width="380" height="200">
 When it comes to the combined effect, both groups have gone through a negative change in ATCR (-0.92% and -12.11%). Therefore, I suggest rolling out Test 1 Variation 1 only.
 
 
