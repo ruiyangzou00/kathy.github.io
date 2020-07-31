@@ -89,6 +89,12 @@ I found out that products like pants and shoes had the ATCR increase since these
 
 The users that signed up without a purchase went through a decline of ATCR (-2.1%) and CVR (-1.09%). In my opinion, the users may go back to add more products or leave because of the free shipping banner. Moreover, they may tend to abandon the cart for the higher value of the order. When it comes to users with purchase history, I found out that this type of visitors reacted better. Therefore, I suggested the rolling out Test 3 except the signed up without purchase users.
 
+### Multivariate Analysis
+#### Combined Impact
+<img src='image/multi.png' width="320" height="280">
+When it comes to the combined effect, both groups have gone through a negative change in ATCR (-0.92% and -12.11%). Therefore, I suggest rolling out Test 1 Variation 1 only.
+
+
 ### Conclusion
 #### Recommandation
 I suggested the **rolling out Variation 1 of Test 1** for all of the users. This is because if from a business analytical point of view we are required to be **aggressive** because it may temporarily decrease the impulse spending, but it may **potentially make the users pay more attention to our product details**. This is a positive effect that is beneficial to **promoting our brand awareness**. When we choose to have a lower risk appetite, I suggested, that in this condition, to the rolling out Variation 1 of Test 1 except for the users with purchase history we saw a significant decrease on C/O. Regarding Test 3, I suggested the **rolling out it for all the users except the ones that signed up without purchase**.
