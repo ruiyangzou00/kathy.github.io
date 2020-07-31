@@ -4,6 +4,6 @@ This is my personal portfolio, which includes the projects I have been working o
 * UI Design AB Testing Project
 * Marketing Mix Modeling Project
 
-Note: The data has been masked.
-
 Please see more details in each project folder.
+
+#####(Note: The data has been masked.)
